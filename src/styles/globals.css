@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  position: relative;
+  z-index: 2;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../public/img/lines.svg");
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.eth::before {
+  content: url("../../public/img/eth-black.svg");
+  position: absolute;
+  @apply top-[-50px] right-[40px] w-[30px] h-[30px] lg:right-[60px] lg:top-0;
+}
+
+.eth::after {
+  content: url("../../public/img/eth-purple.svg");
+  position: absolute;
+  @apply hidden lg:block lg:left-[-100px] lg:bottom-0;
+}
+
+.launch {
+  color: white;
+  background-color: black;
+}
+
+.launch:hover {
+  color: black;
+}
+
+.launch:before {
+  content: "";
+  position: absolute;
+  background: white;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: width 0.1s ease-out;
+}
+
+.launch:hover::before {
+  width: 100%;
+  transition: width 0.1s ease-in;
+}

@@ -1,0 +1,57 @@
+<svg width="1440" height="1110" viewBox="0 0 1440 1110" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_1_6)">
+<path d="M0 1057.78H1440" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 995.556L1440 995.556" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 933.333L1440 933.333" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 871.111L1440 871.111" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 808.889L1440 808.889" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 746.667L1440 746.667" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 684.444L1440 684.444" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 622.222L1440 622.222" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 560L1440 560" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 497.778L1440 497.778" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 435.556L1440 435.556" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 373.333L1440 373.333" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 311.111L1440 311.111" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 248.889L1440 248.889" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 186.667L1440 186.667" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 124.444L1440 124.444" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 62.2222L1440 62.2222" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 0L1440 0" stroke="white" stroke-opacity="0.2"/>
+<path d="M0 0L0 1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M65.4546 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M130.909 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M196.364 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M261.818 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M327.273 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M392.727 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M458.182 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M523.636 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M589.091 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M654.545 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M720 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M785.454 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M850.909 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M916.364 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M981.818 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M1047.27 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M1112.73 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M1178.18 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M1243.64 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M1309.09 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M1374.55 0V1120" stroke="white" stroke-opacity="0.2"/>
+<path d="M1440 0V1120" stroke="white" stroke-opacity="0.2"/>
+</g>
+<defs>
+<filter id="filter0_d_1_6" x="-4.5" y="-0.5" width="1449" height="1129" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_6"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_6" result="shape"/>
+</filter>
+</defs>
+</svg>
