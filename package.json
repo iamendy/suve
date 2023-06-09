@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@axelar-network/axelarjs-sdk": "^0.12.8",
     "@rainbow-me/rainbowkit": "~0.12.1",
     "ethers": "^5.7.0",
     "next": "^13.0.0",
