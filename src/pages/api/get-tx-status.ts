@@ -1,9 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import {
-  AxelarQueryAPI,
+  AxelarGMPRecoveryAPI,
   Environment,
-  CHAINS,
-  GasToken,
 } from "@axelar-network/axelarjs-sdk";
 
 export default async function handler(
@@ -11,16 +9,13 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "GET") {
-    const aQuery = new AxelarQueryAPI({
+    const tx = req.query.hash;
+    const aQuery = new AxelarGMPRecoveryAPI({
       environment: Environment.TESTNET,
     });
 
-    const gas = await aQuery.estimateGasFee(
-      CHAINS.TESTNET.FANTOM,
-      CHAINS.TESTNET.AVALANCHE,
-      GasToken.FTM
-    );
+    const txStatus = await aQuery.queryTransactionStatus(tx);
 
-    res.status(200).json({ gas });
+    res.status(200).json({ txStatus });
   }
 }

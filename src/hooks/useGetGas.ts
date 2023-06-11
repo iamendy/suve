@@ -6,7 +6,7 @@ const useGetGas = () => {
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/gas-estimate`)
       .then((res) => res.json())
-      .then((data) => setEstimate(ethers.utils.formatEther(data.gas)))
+      .then((data) => setEstimate(data.gas))
       .catch((e) => console.log(e));
   }, []);
 

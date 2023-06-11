@@ -7,6 +7,7 @@ import { WagmiConfig } from "wagmi";
 import "../styles/globals.css";
 import { chains, client } from "../wagmi";
 import { Paytone_One, Maven_Pro } from "next/font/google";
+import { VaccineProvider } from "../context/VaccineContext";
 
 const paytoneOne = Paytone_One({
   subsets: ["latin"],
@@ -34,7 +35,9 @@ function App({ Component, pageProps }: AppProps) {
           <main
             className={`${paytoneOne.variable} ${mavenPro.variable} bg-black/[92%] text-white min-h-screen main overflow-hidden`}
           >
-            <Component {...pageProps} />
+            <VaccineProvider>
+              <Component {...pageProps} />
+            </VaccineProvider>
           </main>
         )}
       </RainbowKitProvider>

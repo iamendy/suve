@@ -1,6 +1,6 @@
 export const chains = {
   fantom: {
-    address: "0xdda1A105A34eB39868e7b7EFEf5C031fa8B7b708",
+    address: "0x47A015E6d0a22FA163eA9c6509F37FEA65146C14",
     abi: [
       {
         inputs: [
@@ -143,6 +143,12 @@ export const chains = {
             name: "expiresAt",
             type: "uint256",
           },
+          {
+            indexed: true,
+            internalType: "address",
+            name: "checker",
+            type: "address",
+          },
         ],
         name: "VerificationReceived",
         type: "event",
@@ -187,7 +193,18 @@ export const chains = {
         type: "function",
       },
       {
-        inputs: [],
+        inputs: [
+          {
+            internalType: "address",
+            name: "checker",
+            type: "address",
+          },
+          {
+            internalType: "bytes32",
+            name: "hash",
+            type: "bytes32",
+          },
+        ],
         name: "getVaccines",
         outputs: [
           {
@@ -223,9 +240,9 @@ export const chains = {
                 type: "uint256",
               },
             ],
-            internalType: "struct Verify.Vaccine[]",
+            internalType: "struct Verify.Vaccine",
             name: "",
-            type: "tuple[]",
+            type: "tuple",
           },
         ],
         stateMutability: "view",

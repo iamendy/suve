@@ -59,10 +59,13 @@
 }
 
 .verified::before {
-  content: url("../../public/img/verified.png");
+  content: "";
   position: absolute;
-  @apply bottom-0 right-0 w-[200px] h-[200px];
-  border: solid 1px red;
+  @apply bottom-5 right-5 w-[100px] h-[100px];
+  background-color: red;
+  background: url("../../public/img/verified.png") center/contain;
+  z-index: 0;
+  opacity: 0.8;
 }
 
 .lds-ring {
