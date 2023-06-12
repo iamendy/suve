@@ -1,7 +1,20 @@
 import { useRef, useState } from "react";
 import { useStorageUpload } from "@thirdweb-dev/react";
 import Loader from "../icons/Loader";
-const ImgUploader = ({ imgLink, setImgLink, isUploaded, setIsUploaded }) => {
+
+interface Props {
+  imgLink: string;
+  setImgLink: (x: string) => void;
+  setIsUploaded: (x: boolean) => void;
+  isUploaded: boolean;
+}
+
+const ImgUploader = ({
+  imgLink,
+  setImgLink,
+  isUploaded,
+  setIsUploaded,
+}: Props) => {
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const imgFile = useRef<HTMLInputElement | null>(null);
 

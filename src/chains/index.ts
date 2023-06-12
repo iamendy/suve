@@ -1,4 +1,6 @@
-const chains = {
+import { Chains } from "../types";
+
+const chains: Chains = {
   //Source Contract
   enrollService: {
     address: "0xcadC2E318A281A423343d125880f0E2a42C88fa9",
@@ -361,7 +363,6 @@ const chains = {
       },
     ],
   },
-
   //Interchain Verification Contracts
   verificationService: {
     abi: [

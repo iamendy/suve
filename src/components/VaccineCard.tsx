@@ -1,6 +1,12 @@
 import formatDate from "../helpers/formatDate";
+import { Vaccine } from "../types";
 
-const VaccineCard = ({ vaccine, enroll = false }) => {
+interface Props {
+  vaccine: Vaccine;
+  enroll?: boolean;
+}
+
+const VaccineCard = ({ vaccine, enroll = false }: Props) => {
   return (
     <>
       {vaccine && vaccine.name ? (

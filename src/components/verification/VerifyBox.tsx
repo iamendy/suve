@@ -56,9 +56,6 @@ const Verify = () => {
       value: estimate,
     },
   });
-
-  config && console.log(config);
-
   const { write: verifyHash, data, isLoading } = useContractWrite(config);
 
   const { isLoading: isTx } = useWaitForTransaction({

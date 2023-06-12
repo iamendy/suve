@@ -29,6 +29,7 @@ const EnrollBox = () => {
   ));
 
   const { config } = usePrepareContractWrite({
+    //@ts-ignore
     address: chains.enrollService.address,
     abi: chains.enrollService.abi,
     functionName: "enrollVaccine",
@@ -102,6 +103,7 @@ const EnrollBox = () => {
           <DatePicker
             selected={expiryDate}
             customInput={<ExpiryDatePicker />}
+            //@ts-ignore
             onChange={(date) => setExpiryDate(date)}
           />
         </div>

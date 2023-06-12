@@ -2,20 +2,22 @@ import { useContractRead, useAccount } from "wagmi";
 import chains from "../../chains";
 import { useState } from "react";
 import VaccineCard from "../VaccineCard";
+import { Vaccine } from "../../types";
 
 const AllVaccines = () => {
-  const [vaccines, setVaccines] = useState([]);
+  const [vaccines, setVaccines] = useState<Vaccine[]>([]);
   const { address } = useAccount();
 
   useContractRead({
+    //@ts-ignore
     address: chains.enrollService.address,
     abi: chains.enrollService.abi,
     functionName: "getAllVaccines",
-    chainId: 43113,
     overrides: {
       from: address,
     },
     onSuccess(vaccines) {
+      //@ts-ignore
       setVaccines(vaccines);
     },
     watch: true,

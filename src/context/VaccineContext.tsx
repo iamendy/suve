@@ -1,13 +1,7 @@
 import { createContext, useState } from "react";
+import { Vaccine } from "../types";
 
-const VaccineContext = createContext(null);
-
-interface Vaccine {
-  name: string;
-  description: string;
-  registeredAt: string;
-  expiresAt: string;
-}
+const VaccineContext = createContext<Vaccine | null>(null);
 
 export function VaccineProvider({ children }: any) {
   const [vaccine, setVaccine] = useState<Vaccine>();
