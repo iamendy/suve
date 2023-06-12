@@ -29,7 +29,7 @@ const ImgUploader = ({ imgLink, setImgLink, isUploaded, setIsUploaded }) => {
         hidden
         onChange={(e) => handleUpload(e)}
       />
-      <span className="text-sm lg:text-base text-gray-100">Image Link</span>
+      <span className="text-sm lg:text-base text-gray-100">Image</span>
       <div
         className="h-[100px] overflow-clip border border-slate-700 flex items-center justify-center rounded-sm cursor-pointer"
         onClick={() => imgFile.current.click()}

@@ -1,14 +1,16 @@
-import VaccineContext from "../../context/VaccineContext";
+import VaccineContext from "../context/VaccineContext";
 import { useContext } from "react";
-import formatDate from "../../helpers/formatDate";
+import formatDate from "../helpers/formatDate";
 
-const VaccineCard = () => {
-  const { vaccine } = useContext(VaccineContext);
-  console.log(vaccine);
+const VaccineCard = ({ vaccine, enroll }) => {
   return (
     <>
-      {vaccine.name ? (
-        <div className="verified shadow relative flex flex-col rounded-sm space-y-5 mt-6 p-5 bg-gray-800">
+      {vaccine && vaccine.name ? (
+        <div
+          className={`${
+            enroll ? "border border-gray-400 rounded-lg " : "verified"
+          }  shadow relative flex flex-col rounded-sm space-y-5 mt-6 p-5 bg-gray-800`}
+        >
           <div className="flex justify-center items-center rounded-sm min-h-[200px] h-[100px] overflow-clip">
             <img
               src={vaccine?.imageLink}
@@ -16,6 +18,12 @@ const VaccineCard = () => {
               className="w-full h-full object-cover"
             />
           </div>
+          {enroll ? (
+            <div>
+              <span className="text-sm font-bold">Hash</span>
+              <h3 className="break-words text-sm">{vaccine?.hash}</h3>
+            </div>
+          ) : null}
           <div>
             <span className="text-sm font-bold">Name</span>
             <h3>{vaccine?.name}</h3>

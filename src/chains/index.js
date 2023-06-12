@@ -1,95 +1,7 @@
 export const chains = {
   enrollService: {
-    address: "0xa214Be79Ec4dCD44eE6c667543a4C171d2c19903",
+    address: "0xcadC2E318A281A423343d125880f0E2a42C88fa9",
     abi: [
-      {
-        inputs: [
-          {
-            internalType: "address",
-            name: "gateway_",
-            type: "address",
-          },
-          {
-            internalType: "address",
-            name: "gasReceiver_",
-            type: "address",
-          },
-        ],
-        stateMutability: "nonpayable",
-        type: "constructor",
-      },
-      {
-        inputs: [],
-        name: "InvalidAddress",
-        type: "error",
-      },
-      {
-        inputs: [],
-        name: "NotApprovedByGateway",
-        type: "error",
-      },
-      {
-        anonymous: false,
-        inputs: [
-          {
-            indexed: true,
-            internalType: "bytes32",
-            name: "hash",
-            type: "bytes32",
-          },
-          {
-            indexed: true,
-            internalType: "string",
-            name: "name",
-            type: "string",
-          },
-          {
-            indexed: false,
-            internalType: "string",
-            name: "description",
-            type: "string",
-          },
-          {
-            indexed: false,
-            internalType: "string",
-            name: "imageLink",
-            type: "string",
-          },
-          {
-            indexed: false,
-            internalType: "uint256",
-            name: "registeredAt",
-            type: "uint256",
-          },
-          {
-            indexed: false,
-            internalType: "uint256",
-            name: "expiresAt",
-            type: "uint256",
-          },
-        ],
-        name: "NewVaccineEnrolled",
-        type: "event",
-      },
-      {
-        anonymous: false,
-        inputs: [
-          {
-            indexed: true,
-            internalType: "address",
-            name: "previousOwner",
-            type: "address",
-          },
-          {
-            indexed: true,
-            internalType: "address",
-            name: "newOwner",
-            type: "address",
-          },
-        ],
-        name: "OwnershipTransferred",
-        type: "event",
-      },
       {
         inputs: [
           {
@@ -185,6 +97,114 @@ export const chains = {
         type: "function",
       },
       {
+        inputs: [
+          {
+            internalType: "address",
+            name: "gateway_",
+            type: "address",
+          },
+          {
+            internalType: "address",
+            name: "gasReceiver_",
+            type: "address",
+          },
+        ],
+        stateMutability: "nonpayable",
+        type: "constructor",
+      },
+      {
+        inputs: [],
+        name: "InvalidAddress",
+        type: "error",
+      },
+      {
+        inputs: [],
+        name: "NotApprovedByGateway",
+        type: "error",
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: true,
+            internalType: "bytes32",
+            name: "hash",
+            type: "bytes32",
+          },
+          {
+            indexed: true,
+            internalType: "string",
+            name: "name",
+            type: "string",
+          },
+          {
+            indexed: false,
+            internalType: "string",
+            name: "description",
+            type: "string",
+          },
+          {
+            indexed: false,
+            internalType: "string",
+            name: "imageLink",
+            type: "string",
+          },
+          {
+            indexed: false,
+            internalType: "uint256",
+            name: "registeredAt",
+            type: "uint256",
+          },
+          {
+            indexed: false,
+            internalType: "uint256",
+            name: "expiresAt",
+            type: "uint256",
+          },
+        ],
+        name: "NewVaccineEnrolled",
+        type: "event",
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: true,
+            internalType: "address",
+            name: "previousOwner",
+            type: "address",
+          },
+          {
+            indexed: true,
+            internalType: "address",
+            name: "newOwner",
+            type: "address",
+          },
+        ],
+        name: "OwnershipTransferred",
+        type: "event",
+      },
+      {
+        inputs: [],
+        name: "renounceOwnership",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "newOwner",
+            type: "address",
+          },
+        ],
+        name: "transferOwnership",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+      {
         inputs: [],
         name: "gasService",
         outputs: [
@@ -205,6 +225,51 @@ export const chains = {
             internalType: "contract IAxelarGateway",
             name: "",
             type: "address",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+      {
+        inputs: [],
+        name: "getAllVaccines",
+        outputs: [
+          {
+            components: [
+              {
+                internalType: "bytes32",
+                name: "hash",
+                type: "bytes32",
+              },
+              {
+                internalType: "string",
+                name: "name",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "description",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "imageLink",
+                type: "string",
+              },
+              {
+                internalType: "uint256",
+                name: "registeredAt",
+                type: "uint256",
+              },
+              {
+                internalType: "uint256",
+                name: "expiresAt",
+                type: "uint256",
+              },
+            ],
+            internalType: "struct VaccineEnrollmentService.Vaccine[]",
+            name: "",
+            type: "tuple[]",
           },
         ],
         stateMutability: "view",
@@ -240,26 +305,6 @@ export const chains = {
           },
         ],
         stateMutability: "view",
-        type: "function",
-      },
-      {
-        inputs: [],
-        name: "renounceOwnership",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-      },
-      {
-        inputs: [
-          {
-            internalType: "address",
-            name: "newOwner",
-            type: "address",
-          },
-        ],
-        name: "transferOwnership",
-        outputs: [],
-        stateMutability: "nonpayable",
         type: "function",
       },
       {
@@ -316,7 +361,7 @@ export const chains = {
     ],
   },
   fantom: {
-    address: "0xa214Be79Ec4dCD44eE6c667543a4C171d2c19903",
+    address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
     abi: [
       {
         inputs: [
