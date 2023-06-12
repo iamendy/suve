@@ -24,8 +24,6 @@ contract VaccineEnrollmentService is AxelarExecutable, Ownable {
     uint expiresAt;
   }
 
-  //manually store hash for demo purpose
-  //in reality, hash will be attached to product.
   bytes32[] hashes;
 
   mapping(bytes32 => Vaccine) allVaccines;
@@ -72,6 +70,15 @@ contract VaccineEnrollmentService is AxelarExecutable, Ownable {
     return hashes[_index];
   }
 
+  function getAllVaccines() external view onlyOwner returns (Vaccine[] memory) {
+    Vaccine[] memory vaccs = new Vaccine[](hashes.length);
+    for (uint i = 0; i < hashes.length; i++) {
+      vaccs[i] = allVaccines[hashes[i]];
+    }
+
+    return vaccs;
+  }
+
   function generateHash(string memory _name) internal view returns (bytes32) {
     return keccak256(abi.encodePacked(vaccineCounter.current(), _name));
   }
@@ -102,3 +109,8 @@ contract VaccineEnrollmentService is AxelarExecutable, Ownable {
 //avax gateway 0xC249632c2D40b9001FE907806902f63038B737Ab
 //avax gas service 0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6
 //avax 0x6214a36f134Bd0211bBB2728aDF9Db64EaFA32FB
+
+// 0xdd4b6093bb9d732796a1329c8cafbdc12a508cfd0a6d2b6a041123ac7418ddb5
+// 0x3a356c806e4489ea18170497f7bc3b699f6874cc53ab86370e31dd464d1d9540
+// 0x20495c73835aac65eb621c316628295a958e47244c5cc297d1af8e48deb35f7a
+// 0x4de858b75fb2d614fb238487862f7ab10eb5e69be28c25083b78360fe0348913

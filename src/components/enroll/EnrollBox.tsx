@@ -34,6 +34,9 @@ const EnrollBox = () => {
     functionName: "enrollVaccine",
     args: [name, description, imgLink, expiryDate.getTime()],
     chainId: 43113,
+    onError(e) {
+      console.log(e);
+    },
   });
 
   const {

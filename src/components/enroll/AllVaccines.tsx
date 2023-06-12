@@ -1,6 +1,6 @@
 import { useContractRead, useAccount } from "wagmi";
 import chains from "../../chains";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import VaccineCard from "../VaccineCard";
 
 const AllVaccines = () => {

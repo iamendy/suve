@@ -4,11 +4,18 @@ import VaccineContext from "../../context/VaccineContext";
 import { useContext, useEffect } from "react";
 import useGetTxStatus from "../../hooks/useGetTxStatus";
 import chains from "../../chains";
+import { useNetwork } from "wagmi";
+
 const VaccineTxInfo = () => {
   const { address } = useAccount();
   const { hash, txHash, setIsGmpInProgress, setVaccine, setIsVaccineLoaded } =
     useContext(VaccineContext);
+  const { chain } = useNetwork();
 
+  const baseConfig = {
+    address: chains.verificationService[chain?.id]?.address,
+    abi: chains.verificationService.abi,
+  };
   const { txStatus, step, callBackTxStatus } = useGetTxStatus(txHash);
 
   //watch for GMP completed then get vaccine
@@ -19,8 +26,7 @@ const VaccineTxInfo = () => {
   }, [step]);
 
   const { refetch: retrieve } = useContractRead({
-    address: chains.fantom.address,
-    abi: chains.fantom.abi,
+    ...baseConfig,
     functionName: "getVaccines",
     args: [address, hash],
     enabled: false,

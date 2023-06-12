@@ -1,8 +1,6 @@
-import VaccineContext from "../context/VaccineContext";
-import { useContext } from "react";
 import formatDate from "../helpers/formatDate";
 
-const VaccineCard = ({ vaccine, enroll }) => {
+const VaccineCard = ({ vaccine, enroll = false }) => {
   return (
     <>
       {vaccine && vaccine.name ? (

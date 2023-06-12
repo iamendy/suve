@@ -22,7 +22,6 @@ const useGetTxStatus = (txHash: string) => {
 
     //terminate on success
     if (step == 8) {
-      console.log("clearing interval");
       clearInterval(refetch);
     }
 
@@ -35,7 +34,6 @@ const useGetTxStatus = (txHash: string) => {
 
     //check if callback is initiated then update url
     const callbackTxHash = data?.txStatus?.callback?.transactionHash;
-    console.log(callbackTxHash);
     if (callbackTxHash) {
       setUrl(
         `${process.env.NEXT_PUBLIC_APP_URL}/api/get-tx-status?hash=${callbackTxHash}`
@@ -75,7 +73,6 @@ const useGetTxStatus = (txHash: string) => {
   const fetchResponseStatus = async () => {
     const res = await fetch(url);
     const data = await res.json();
-    console.log("response called");
     //update the state for send transaction
     switch (data?.txStatus?.status) {
       case "cannot_fetch_status":

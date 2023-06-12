@@ -1,4 +1,5 @@
-export const chains = {
+const chains = {
+  //Source Contract
   enrollService: {
     address: "0xcadC2E318A281A423343d125880f0E2a42C88fa9",
     abi: [
@@ -360,8 +361,9 @@ export const chains = {
       },
     ],
   },
-  fantom: {
-    address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
+
+  //Interchain Verification Contracts
+  verificationService: {
     abi: [
       {
         inputs: [
@@ -610,6 +612,26 @@ export const chains = {
         type: "function",
       },
     ],
+    //fantom
+    4002: {
+      address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
+    },
+    //celo
+    44787: {
+      address: "0xCC5FbA12c5e99d810a999ad2fD9Ed8E45a9F01DA",
+    },
+    //Mumbai
+    80001: {
+      address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
+    },
+    //Avalanche
+    43113: {
+      address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
+    },
+    //sepolia
+    11155111: {
+      address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
+    },
   },
 };
 

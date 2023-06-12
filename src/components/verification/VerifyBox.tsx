@@ -4,8 +4,9 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction,
   useAccount,
+  useNetwork,
 } from "wagmi";
-import { chains } from "../../chains";
+import chains from "../../chains";
 import { useDebounce } from "../../hooks/useDebounce";
 import Loader from "../icons/Loader";
 import useGetGas from "../../hooks/useGetGas";
@@ -15,6 +16,13 @@ import { useContext } from "react";
 
 const Verify = () => {
   const { address } = useAccount();
+  const { chain } = useNetwork();
+
+  const baseConfig = {
+    address: chains?.verificationService[chain?.id]?.address,
+    abi: chains?.verificationService?.abi,
+  };
+
   const {
     setVaccine,
     setIsVaccineLoaded,
@@ -31,8 +39,7 @@ const Verify = () => {
     isLoading: isLoadingVaccine,
     refetch: retrieve,
   } = useContractRead({
-    address: chains.fantom.address,
-    abi: chains.fantom.abi,
+    ...baseConfig,
     functionName: "getVaccines",
     args: [address, hash],
     enabled: false,
@@ -41,14 +48,16 @@ const Verify = () => {
   const { estimate } = useGetGas();
 
   const { config } = usePrepareContractWrite({
-    address: chains.fantom.address,
-    abi: chains.fantom.abi,
+    address: chains?.verificationService[chain?.id]?.address,
+    abi: chains?.verificationService?.abi,
     functionName: "verify",
     args: [debouncedHash],
     overrides: {
       value: estimate,
     },
   });
+
+  config && console.log(config);
 
   const { write: verifyHash, data, isLoading } = useContractWrite(config);
 
@@ -91,6 +100,7 @@ const Verify = () => {
           }}
           disabled={isLoading || isTx}
         />
+        <p>{chain.id}</p>
         <span className="text-xs">
           Gas Estimate: {ethers.utils.formatEther(estimate || "0")}
         </span>
