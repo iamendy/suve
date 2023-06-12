@@ -33,7 +33,7 @@ const VaccineTxInfo = () => {
 
   return (
     <>
-      <div className="flex flex-col rounded-sm space-y-5 mt-6 p-4 bg-gray-800">
+      <div className="flex flex-col rounded-sm space-y-5 mt-6 p-5 bg-gray-800 w-full">
         <ShowTxStatus
           txStatus={txStatus}
           step={step}
@@ -41,28 +41,28 @@ const VaccineTxInfo = () => {
           hash={hash}
         />
 
-        <div className="shadow rounded-sm max-w-sm">
+        <div className="shadow rounded-sm w-full">
           <div className="animate-pulse">
             <div className=" h-[200px] rounded-sm bg-slate-700 mb-2"></div>
 
             <div className="space-y-4 mt-4">
               <div className="flex flex-col space-y-1">
-                <span className="w-[50px] h-4 bg-slate-700 rounded-md"></span>
+                <span className="w-[50px] lg:w-[70px] h-4 bg-slate-700 rounded-md"></span>
                 <div className="h-5 bg-slate-700 rounded-md"></div>
               </div>
 
               <div className="flex flex-col space-y-1">
-                <span className="w-[50px] h-4 bg-slate-700 rounded-md"></span>
+                <span className="w-[50px] lg:w-[70px] h-4 bg-slate-700 rounded-md"></span>
                 <div className="h-5 bg-slate-700 rounded-md"></div>
               </div>
 
               <div className="flex flex-col space-y-1">
-                <span className="w-[50px] h-4 bg-slate-700 rounded-md"></span>
+                <span className="w-[50px] lg:w-[70px] h-4 bg-slate-700 rounded-md"></span>
                 <div className="h-5 bg-slate-700 rounded-md"></div>
               </div>
 
               <div className="flex flex-col space-y-1">
-                <span className="w-[50px] h-4 bg-slate-700 rounded-md"></span>
+                <span className="w-[50px] lg:w-[70px] h-4 bg-slate-700 rounded-md"></span>
                 <div className="h-5 bg-slate-700 rounded-md"></div>
               </div>
             </div>

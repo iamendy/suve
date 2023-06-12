@@ -7,15 +7,13 @@ const WhatIsSuve = () => {
       <div className="mt-4 lg:text-xl lg:text-center lg:w-[60%] lg:mx-auto">
         <p className="mt-4">
           SUVe (Super Verification) is a dApp that helps users validate their
-          vaccines. The Covid pandemic saw the influx of substandard and
-          unverifiable vaccines being shipped all over the world especially in
-          developing nations.
+          vaccines.
         </p>
 
         <p className="mt-3">
-          With SUVe, Pharmaceutical companies can leverage on the security,
-          scalability and transperency of SUVe, to ensure only approved vaccines
-          are administered.
+          Pharmaceutical companies can leverage on the security, scalability and
+          transperency of SUVe, to ensure only approved vaccines are
+          administered.
         </p>
       </div>
     </section>

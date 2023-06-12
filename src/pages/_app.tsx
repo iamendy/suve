@@ -26,7 +26,7 @@ function App({ Component, pageProps }: AppProps) {
   React.useEffect(() => setMounted(true), []);
   return (
     <WagmiConfig client={client}>
-      <RainbowKitProvider chains={chains}>
+      <RainbowKitProvider chains={chains} modalSize="compact">
         <NextHead>
           <title>SUVe | Interchain Vaccine Verification</title>
         </NextHead>

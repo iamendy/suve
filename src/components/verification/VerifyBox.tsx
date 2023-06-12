@@ -3,16 +3,13 @@ import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
-  useContractEvent,
   useAccount,
 } from "wagmi";
 import { chains } from "../../chains";
-import { useState } from "react";
 import { useDebounce } from "../../hooks/useDebounce";
 import Loader from "../icons/Loader";
 import useGetGas from "../../hooks/useGetGas";
 import { ethers } from "ethers";
-import GetTxStatus from "./ShowTxStatus";
 import VaccineContext from "../../context/VaccineContext";
 import { useContext } from "react";
 
@@ -26,7 +23,9 @@ const Verify = () => {
     setHash,
     hash,
   } = useContext(VaccineContext);
+
   const debouncedHash = useDebounce<string>(hash, 500);
+
   const {
     data: vaccine,
     isLoading: isLoadingVaccine,
@@ -38,8 +37,6 @@ const Verify = () => {
     args: [address, hash],
     enabled: false,
   });
-
-  vaccine && console.log(vaccine);
 
   const { estimate } = useGetGas();
 
@@ -59,9 +56,7 @@ const Verify = () => {
     hash: data?.hash,
     confirmations: 3,
     onSuccess(tx) {
-      //GMP Initiated
-      console.log(tx?.transactionHash);
-      //setHash("");
+      //Initiate GMP tracking
       setTxHash(tx?.transactionHash);
       setIsGmpInProgress(true);
     },
@@ -82,9 +77,9 @@ const Verify = () => {
   };
 
   return (
-    <div className="flex flex-col rounded-sm space-y-5 mt-6 p-5 bg-gray-800">
-      <div className="w-full">
-        <span className="text-sm text-gray-100">Paste Hash</span>
+    <div className="flex flex-col rounded-sm space-y-5 p-5 bg-gray-800">
+      <div className="mb-2">
+        <span className="text-sm lg:text-base text-gray-100">Paste Hash</span>
         <input
           type="text"
           placeholder="0x.."
@@ -102,7 +97,7 @@ const Verify = () => {
       </div>
 
       <button
-        className="bg-black p-3 flex justify-center items-center rounded-sm disabled:bg-gray-400"
+        className="bg-black hover:bg-black/50 active:bg-black p-3 flex justify-center items-center rounded-sm disabled:bg-gray-400"
         onClick={() => handleVerify()}
         disabled={isLoading || isTx || isLoadingVaccine}
       >

@@ -9,11 +9,13 @@ const Verification = () => {
   const { isVaccineLoaded, isGmpInProgress } = useContext(VaccineContext);
   return (
     <Layout>
-      <section className="min-h-screen bg-black/80 px-4">
-        <VerifyBox />
+      <section className="px-4 min-h-screen backdrop-blur-sm py-8 ">
+        <div className="lg:max-w-xl lg:mx-auto">
+          <VerifyBox />
 
-        {isVaccineLoaded && <VaccineCard />}
-        {isGmpInProgress && <VaccineTxInfo />}
+          {isVaccineLoaded && <VaccineCard />}
+          {isGmpInProgress && <VaccineTxInfo />}
+        </div>
       </section>
     </Layout>
   );

@@ -1,29 +1,37 @@
 import Link from "../icons/Link";
 
 const ShowTxStatus = ({ txStatus, step, callBackTxStatus, hash }) => {
+  const getStatus = (
+    txStatus: string,
+    callBackTxStatus: string,
+    step: string
+  ): string => {
+    let status = "";
+    return status;
+  };
   return (
     <div>
       <div className="flex justify-between items-center">
         <span>
           {txStatus == "source_gateway_called" && step < 4
-            ? "Pinging Source.."
+            ? "Pinging Source chain.."
             : txStatus == "confirmed" && step < 4
-            ? "submitting.."
+            ? "submitting hash.."
             : txStatus == "executing" && step < 4
-            ? "Validating hash.."
-            : txStatus == "destination_executed" && step < 4
-            ? "Source Executed ✅"
-            : txStatus == "cannot_fetch_status"
-            ? "Nextwork busy. retrying.."
-            : callBackTxStatus == "cannot_fetch_status"
-            ? "Nextwork busy. retrying.."
+            ? "Decoding hash.."
+            : txStatus == "destination_executed" && step == 4
+            ? "Source Executed"
+            : txStatus == "cannot_fetch_status" && step < 4
+            ? "Network busy. retrying.."
+            : callBackTxStatus == "cannot_fetch_status" && step > 4
+            ? "Network busy. retrying.."
             : callBackTxStatus == "confirmed" && step > 4
             ? "Receiving.."
             : callBackTxStatus == "executing" && step > 4
             ? "Validating hash.."
-            : callBackTxStatus == "destination_executed" && step > 4
-            ? "Compiling Vaccine ✅"
-            : "Initiating Axelar Magic ✨"}
+            : callBackTxStatus == "destination_executed" && step == 8
+            ? "Compiling Vaccine.."
+            : "Performing Axelar Magic ✨"}
         </span>
         <a href={`https://testnet.axelarscan.io/gmp/${hash}`} target="_blank">
           <Link />
