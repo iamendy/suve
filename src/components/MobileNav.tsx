@@ -7,14 +7,14 @@ import Link from "next/link";
 import { useAccount, useNetwork } from "wagmi";
 import UserIcon from "./icons/UserIcon";
 import Chevron from "./icons/Chevron";
-import Menu from "./icons/Menu";
+import Close from "./icons/Close";
 
 type Props = {
   toggle: boolean;
   setToggle: (x: boolean) => void;
 };
 
-const Navbar = ({ toggle, setToggle }: Props) => {
+const MobileNav = ({ toggle, setToggle }: Props) => {
   const { openChainModal } = useChainModal();
   const { openConnectModal } = useConnectModal();
   const { openAccountModal } = useAccountModal();
@@ -23,30 +23,16 @@ const Navbar = ({ toggle, setToggle }: Props) => {
 
   return (
     <div
-      className="relative bg-black px-3 py-5 flex justify-between items-center border-white border-t border-b
-    lg:py-5 lg:px-16"
+      className={`${
+        toggle ? "visible" : "invisible"
+      } absolute lg:hidden top-0 left-0 w-full h-full bg-black/70 backdrop-blur-md z-[10000]`}
     >
-      <Link
-        href="/"
-        className="text-white text-xl lg:text-2xl xl:text-3xl font-extrabold"
-      >
-        SUVe
-      </Link>
-
-      <div onClick={() => setToggle(true)}>
-        <Menu />
+      <div className="absolute top-8 right-5" onClick={() => setToggle(false)}>
+        <Close />
       </div>
-
-      <div className="hidden lg:flex items-center space-x-5">
-        <a
-          href="#"
-          className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
-          target="_blank"
-        >
-          Blog
-        </a>
+      <div className="flex flex-col items-center space-y-9 border h-full w-full pt-32">
         {isConnected ? (
-          <div className=" flex space-x-4">
+          <div className="flex items-center text-2xl flex-col space-y-9">
             <Link
               href="/enroll"
               className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
@@ -77,11 +63,19 @@ const Navbar = ({ toggle, setToggle }: Props) => {
                 <UserIcon />
               </button>
             )}
+
+            <a
+              href="#"
+              className="font-bold rounded-sm text-2xl hover:bg-white hover:text-black px-5 py-2"
+              target="_blank"
+            >
+              Blog
+            </a>
           </div>
         ) : (
           <button
             onClick={openConnectModal}
-            className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
+            className="font-bold text-2xl rounded-sm hover:bg-white hover:text-black px-5 py-2"
           >
             Connect
           </button>
@@ -90,4 +84,4 @@ const Navbar = ({ toggle, setToggle }: Props) => {
     </div>
   );
 };
-export default Navbar;
+export default MobileNav;

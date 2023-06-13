@@ -3,7 +3,7 @@ import { Chains } from "../types";
 const chains: Chains = {
   //Source Contract (Avalanche)
   enrollService: {
-    address: "0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d",
+    address: "0x7568ab17319FBf62d003042c4711d05E23657077",
     abi: [
       {
         inputs: [
@@ -250,7 +250,7 @@ const chains: Chains = {
                 type: "uint256",
               },
             ],
-            internalType: "struct VaccineEnrollmentService.Vaccine[]",
+            internalType: "struct EnrollmentService.Vaccine[]",
             name: "",
             type: "tuple[]",
           },
@@ -353,7 +353,7 @@ const chains: Chains = {
                 type: "uint256",
               },
             ],
-            internalType: "struct VaccineEnrollmentService.Vaccine",
+            internalType: "struct EnrollmentService.Vaccine",
             name: "",
             type: "tuple",
           },

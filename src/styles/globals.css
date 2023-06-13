@@ -21,6 +21,9 @@
   z-index: -1;
 }
 
+.eth {
+  z-index: -1;
+}
 .eth::before {
   content: url("../../public/img/eth-black.svg");
   position: absolute;

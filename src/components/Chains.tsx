@@ -12,8 +12,8 @@ const Chains = () => {
       <p className="font-bold text-xl">Supported Chains </p>
       <div className="mt-4 w-[70%] lg: lg:w-[30%] mx-auto flex items-center justify-between space-x-3">
         <img
-          src="/img/ethereum-logo.svg"
-          alt="Ethereum Logo"
+          src="/img/avalanche-logo.svg"
+          alt="avalanche Logo"
           className="w-9 h-9"
         />
 
@@ -25,11 +25,6 @@ const Chains = () => {
           className="w-9 h-9"
         />
 
-        <img
-          src="/img/avalanche-logo.svg"
-          alt="avalanche Logo"
-          className="w-9 h-9"
-        />
         <img
           src="/img/polygon-logo.svg"
           alt="polygon Logo"

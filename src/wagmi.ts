@@ -1,16 +1,15 @@
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient } from "wagmi";
 import {
-  sepolia,
-  celoAlfajores,
-  polygonMumbai,
-  fantomTestnet,
   avalancheFuji,
+  polygonMumbai,
+  celoAlfajores,
+  fantomTestnet,
 } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, provider } = configureChains(
-  [sepolia, celoAlfajores, polygonMumbai, fantomTestnet, avalancheFuji],
+  [celoAlfajores, polygonMumbai, fantomTestnet, avalancheFuji],
   [publicProvider()]
 );
 

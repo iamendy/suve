@@ -36,14 +36,8 @@ const Hero = () => {
         )}
       </div>
 
-      <div>
-        <div className="eth relative p-4 flex justify-center items-center">
-          <img
-            src="/img/hands.svg"
-            alt="hands"
-            className="w-[70%] lg:w-[100%]"
-          />
-        </div>
+      <div className="relative eth p-4 flex justify-center items-center">
+        <img src="/img/hands.svg" alt="hands" className="w-[70%] lg:w-[100%]" />
       </div>
     </section>
   );
