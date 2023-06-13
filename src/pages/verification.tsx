@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { useAccount } from "wagmi";
 
 const Verification = () => {
+  //@ts-ignore
   const { isVaccineLoaded, isGmpInProgress, vaccine } =
     useContext(VaccineContext);
   const router = useRouter();

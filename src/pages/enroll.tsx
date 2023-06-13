@@ -15,8 +15,10 @@ const Enroll = () => {
   const { isLoading, switchNetwork } = useSwitchNetwork();
   const { address, isConnected } = useAccount();
   const router = useRouter();
+  //@ts-ignore
   const sourceChainId = parseInt(process.env.NEXT_PUBLIC_SOURCE_ID);
   const { data: owner } = useContractRead({
+    //@ts-ignore
     address: chains.enrollService.address,
     abi: chains.enrollService.abi,
     functionName: "owner",
@@ -53,6 +55,7 @@ const Enroll = () => {
                   <a
                     href="https://chainid.network"
                     target="_blank"
+                    rel="noreferrer"
                     className="text-green-500 underline"
                   >
                     one click
@@ -73,6 +76,7 @@ const Enroll = () => {
             {chain?.id !== sourceChainId && (
               <button
                 className="p-3 rounded-md bg-red-600 hover:bg-green-600"
+                //@ts-ignore
                 onClick={() => switchNetwork(sourceChainId)}
               >
                 {isLoading ? "Switching.." : "Switch To Avalanche"}

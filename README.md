@@ -1,31 +1,36 @@
-# SUVe with Axelar
+## SUVe with Axelar
 
-## ✨ Inspiration
+### ✨ Inspiration
 
-In Fiscal year 2020, Department of Homeland security seized over $1.3b worth of counterfeit goods at US border. This is a tiny fraction of the many scenerios happening globally. With the inception of Covid-19, and a rush to find a fast and effective solution, we have witnessed a rise in counterfeit vaccines. This has cost thousands of human lives, especially in emerging countries. Suve is a dApp that takles this problem.
+With the outbreak of Covid-19, and a rush to find a fast and effective solution, we have witnessed a rise in counterfeit vaccines. This has cost thousands of human lives, especially in emerging countries. Suve is a dApp that takles this problem.
 
-## 🍰 What SUVe does
+### 🍰 What SUVe does
 
-Unlike traditional dApps that are deployed and run in parallel, SUVe allows users on different blockchain ecosystems to query from one single source of truth. To showcase this technique, I developed a Vaccine verification system using the powerful Axelar inter-chain technology. Suve works by implementing a 2-way General Message Passing to enable communication between Enrollment Service on the source blockchain and Verifification service on other blockchains, to verify the autheticity of vaccines.
+SUVe allows users on different blockchain ecosystems to query from a single source of truth. Suve works by implementing a 2-way General Message Passing to enable communication between Enrollment Service on the source blockchain and Verifification service on other blockchains, to verify the autheticity of vaccines.
 
-## 📜 Interchain Transaction for Vaccine verification
+### 📜 2-way Interchain Transaction for Vaccine verification
 
-## 💻 How I built SUVe
+Request: [This is a transaction made to VerificationService](https://testnet.axelarscan.io/gmp/0x6fc432832a421eaa8a67905bd3b4f4b509d02019fb2ad5e6723729d693216501)
 
-I created 2 EVM smart contracts in Solidity, [**EnrollmentService.sol**](https://github.com/iamendy/suve/blob/master/contracts/Enrol.sol) and [**VerificationService.sol**](https://github.com/iamendy/suve/blob/master/contracts/Verify.sol). The EnrollmentService is the source of truth and deployed on the Avalanche Blockchain. The EnrollmentService is where a pharmacetucal company can register their vaccines, while the VerificationService is deployed on three of the many EVM compatible chains supported by Axelar(Celo, Fantom, and Ploygon). These smart contracts uses Axelar 2-way General Message Passing to make cross-chain call between VerificationService(Request) on other blockchains and EnrollmentService(Response).
+Response:
+[This is the response from EnrollmentService on the source chain](https://testnet.axelarscan.io/gmp/0xa27784ec4365f07afe0c30398b8b7271cf8169ec589765d1e5fef1ec4a5dc8bf)
 
-For the front end, I used **`NextJs/Typescript`** with **`Wagmi`**. I also used **`RainbowKit`** for wallets integration. The dApp uses **`AxelarJs SDK`** on API endpoints which implements `AxelarQueryAPI` and `AxelarGMPRecoveryAPI` to get interchain estimated gas, as well as track the entire 2-way GMP process on the frontend. A user only has to switch to the supported blockchain, and is automatically hooked up for verification.
+### 💻 How I built SUVe
 
-## 🚀 Accomplishments that I'm proud of
+I created 2 EVM smart contracts in Solidity, [**EnrollmentService.sol**](https://github.com/iamendy/suve/blob/master/contracts/Enrol.sol) and [**VerificationService.sol**](https://github.com/iamendy/suve/blob/master/contracts/Verify.sol). The EnrollmentService is the source of truth and deployed on the Avalanche Blockchain. The EnrollmentService is where a pharmacetucal company can register their vaccines, while the VerificationService is deployed on three of the many EVM compatible chains supported by Axelar(Celo, Fantom, and Polygon). These smart contracts uses Axelar 2-way General Message Passing to make cross-chain calls between VerificationService(Request) on other blockchains and EnrollmentService(Response).
 
-🍥 I implemented an inter-chain verification system that wouldn't have been possible without Axelar.
-🍥 I showcased how different blockchains can interact and sync data as one super DApp.
-🍥 I implemented 2-way GMP UI tracking on the frontend, using AlexarJs SDK. This allowing users monitor progress without leaving the dApp.
-🍥 I really enjoyed studying the Axelar technology, and the myraids of potentials it unlocks for the blockchain ecosystem.
+For the front end, I used **`NextJs/Typescript`** with **`Wagmi`**. The dApp uses **`AxelarJs SDK`** on API endpoints which implements `AxelarQueryAPI` and `AxelarGMPRecoveryAPI` to get interchain estimated gas, as well as track the entire 2-way GMP process on the frontend.
 
-## 🧘‍♂️ Experience learning and using Axelar
+### 🚀 Accomplishments that I'm proud of
 
-✅ The interchain capability allowed me bring this idea to life <br/>
+🍥 I implemented an inter-chain verification system that wouldn't have been possible without Axelar. <br />
+🍥 I showcased how different blockchains can interact and sync data as one super DApp.<br />
+🍥 I implemented 2-way GMP UI tracking on the frontend, using AlexarJs SDK. This allowing users monitor progress without leaving the dApp. <br />
+🍥 I really enjoyed studying the Axelar technology, and the myraids of potentials it unlocks for the blockchain ecosystem. <br />
+
+### 🧘‍♂️ Experience learning and using Axelar
+
+✅ The ease of interchain capability using Axelar is amazing. <br/>
 ✅ I'm more of a visual learner, so the video resources on Youtube really helped bring me up to speed, then the docs became super easy to understand <br />
 ✅ Once you get familiar with Axelar, you really appreciate the work put in to make docs easily absorbed.
 
@@ -65,8 +70,12 @@ Thank you! I hope you enjoyed my interchain-chain verification dApp that saves l
    - VESChain = `Avalanche`
      \*You can deploy to as many chains as you wish.
 
-3. On the dApp, visit the enrollment dashboard to register Vaccnines by filling the form which uploads the image to IPFS and interacts with `EnrollmentService.enroll()`:
+3. Update your deployed addresses on the `src/chains/index.ts file.
 
-4. The dApp is chain aware and will automatically switch to the right service as you change compatible networks.
+4. On the dApp, visit the enrollment dashboard to register Vaccnines. This interacts with `EnrollmentService.enroll()`. Private Key instruction is already made.
 
-5. Verify the vaccine you uploaded on the different blockchains by entering the hash on the verify page.
+5. Run `npm install` to install all dependencies.
+
+6. `npm run dev` to start the app on a development environment.
+
+7. Verify the vaccine you uploaded on the different blockchains by entering the hash on the verify page.

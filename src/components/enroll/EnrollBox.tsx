@@ -18,11 +18,17 @@ const EnrollBox = () => {
   const [imgLink, setImgLink] = useState<string>("");
   const [expiryDate, setExpiryDate] = useState(new Date());
 
-  const ExpiryDatePicker = forwardRef(({ value, onClick }, ref) => (
+  type Props = {
+    value: string;
+    onClick: () => void;
+  };
+  // eslint-disable-next-line react/display-name
+  const ExpiryDatePicker = forwardRef(({ value, onClick }: Props, ref) => (
     <input
       className="w-full text-gray-800 p-2 rounded-sm focus:outline-none"
       value={value}
       onClick={onClick}
+      //@ts-ignore
       ref={ref}
       readOnly
     />
@@ -101,6 +107,7 @@ const EnrollBox = () => {
           </span>
           <DatePicker
             selected={expiryDate}
+            //@ts-ignore
             customInput={<ExpiryDatePicker />}
             //@ts-ignore
             onChange={(date) => setExpiryDate(date)}

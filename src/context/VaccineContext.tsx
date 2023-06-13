@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createContext, useState } from "react";
 import { Vaccine } from "../types";
 

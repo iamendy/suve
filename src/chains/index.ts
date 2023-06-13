@@ -3,7 +3,7 @@ import { Chains } from "../types";
 const chains: Chains = {
   //Source Contract (Avalanche)
   enrollService: {
-    address: "0x7568ab17319FBf62d003042c4711d05E23657077",
+    address: "0xC75B4ef7277C1A9418810b85caaf8Bb3402A7dA1",
     abi: [
       {
         inputs: [
@@ -605,7 +605,7 @@ const chains: Chains = {
                 type: "uint256",
               },
             ],
-            internalType: "struct Verify.Vaccine",
+            internalType: "struct VerificationService.Vaccine",
             name: "",
             type: "tuple",
           },
@@ -642,19 +642,19 @@ const chains: Chains = {
     ],
     //fantom
     4002: {
-      address: "0xe5Eee9643fE4d3fD9c5cAC29Ef5f96b8885FE6aB",
+      address: "0x99C5D88187BC8aBb15874EB3F896530F5EcB87f4",
     },
     //celo
     44787: {
-      address: "0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d",
+      address: "0xf0e6ed689202d980c59B516Faa54f4c403023097",
     },
     //Mumbai
     80001: {
-      address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
+      address: "0xe5Eee9643fE4d3fD9c5cAC29Ef5f96b8885FE6aB",
     },
     //Avalanche
     43113: {
-      address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
+      address: "0xC75B4ef7277C1A9418810b85caaf8Bb3402A7dA1",
     },
   },
 };

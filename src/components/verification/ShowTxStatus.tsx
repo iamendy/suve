@@ -35,6 +35,7 @@ const ShowTxStatus = ({ txStatus, step, callBackTxStatus, hash }: Props) => {
         <a
           href={`https://testnet.axelarscan.io/gmp/${hash}`}
           target="_blank"
+          rel="noreferrer"
           className="hover:underline"
         >
           <div className="flex justify-between items-center space-x-1 ">

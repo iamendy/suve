@@ -5,14 +5,16 @@ import { useContext, useEffect } from "react";
 import useGetTxStatus from "../../hooks/useGetTxStatus";
 import chains from "../../chains";
 import { useNetwork } from "wagmi";
-
+import { Chain } from "wagmi";
 const VaccineTxInfo = () => {
   const { address } = useAccount();
+  //@ts-ignore
   const { hash, txHash, setIsGmpInProgress, setVaccine, setIsVaccineLoaded } =
     useContext(VaccineContext);
   const { chain } = useNetwork();
 
   const baseConfig = {
+    //@ts-ignore
     address: chains.verificationService[chain?.id]?.address,
     abi: chains.verificationService.abi,
   };

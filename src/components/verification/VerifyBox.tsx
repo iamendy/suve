@@ -13,12 +13,22 @@ import useGetGas from "../../hooks/useGetGas";
 import { ethers } from "ethers";
 import VaccineContext from "../../context/VaccineContext";
 import { useContext, useEffect, useState } from "react";
+import { Vaccine } from "../../types";
 
+type Options = {
+  setVaccine: (x: Vaccine) => void;
+  setIsVaccineLoaded: (x: boolean) => boolean;
+  setTxHash: (x: string) => void;
+  setIsGmpInProgress: (x: boolean) => void;
+  setHash: (x: string) => void;
+  hash: string;
+};
 const Verify = () => {
   const { address } = useAccount();
   const { chain } = useNetwork();
   const [isValidEntry, setIsValidEntry] = useState<boolean>(false);
 
+  //@ts-ignore
   const {
     setVaccine,
     setIsVaccineLoaded,
@@ -26,17 +36,18 @@ const Verify = () => {
     setIsGmpInProgress,
     setHash,
     hash,
-  } = useContext(VaccineContext);
+  }: Options = useContext(VaccineContext);
 
   const debouncedHash = useDebounce<string>(hash, 500);
-
+  //@ts-ignore
   const sourceChainId: number = parseInt(process.env.NEXT_PUBLIC_SOURCE_ID);
 
   //dynamically change parameters when verification network changes
   let contractAddress =
     chain?.id == sourceChainId
       ? chains.enrollService.address
-      : chains?.verificationService[chain?.id]?.address;
+      : //@ts-ignore
+        chains?.verificationService[chain?.id]?.address;
 
   let abi =
     chain?.id == sourceChainId
@@ -95,6 +106,7 @@ const Verify = () => {
     //on source chain, no GMP
     if (chain?.id == sourceChainId) {
       setIsVaccineLoaded(true);
+      //@ts-ignore
       setVaccine(vaccine);
 
       //other chains
@@ -102,6 +114,7 @@ const Verify = () => {
       //checks if caller has requested before
       if (vaccine?.name) {
         setIsVaccineLoaded(true);
+        //@ts-ignore
         setVaccine(vaccine);
 
         //verify hash with GMP
@@ -116,7 +129,7 @@ const Verify = () => {
     <div className="flex flex-col rounded-sm space-y-5 p-5 bg-gray-800">
       <div className="mb-2">
         <span className="text-sm lg:text-base text-gray-100">
-          Paste Vaccine ID
+          Paste Vaccine ID {chain?.id === sourceChainId ? "yes" : "no"}
         </span>
         <input
           type="text"

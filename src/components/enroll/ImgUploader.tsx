@@ -20,7 +20,7 @@ const ImgUploader = ({
 
   const { mutateAsync: upload } = useStorageUpload();
 
-  const handleUpload = async (e) => {
+  const handleUpload = async (e: any) => {
     const file = e.target?.files[0];
 
     //upload files
@@ -45,6 +45,7 @@ const ImgUploader = ({
       <span className="text-sm lg:text-base text-gray-100">Image</span>
       <div
         className="h-[100px] overflow-clip border border-slate-700 flex items-center justify-center rounded-sm cursor-pointer"
+        //@ts-ignore
         onClick={() => imgFile.current.click()}
       >
         {isUploading ? (

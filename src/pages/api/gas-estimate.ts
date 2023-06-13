@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextApiRequest, NextApiResponse } from "next";
 import {
   AxelarQueryAPI,
@@ -11,7 +12,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "GET") {
-    const chainId = parseInt(req.query.chainId);
+    const chainId = parseInt(req?.query?.chainId);
 
     const chains = {
       4002: {
