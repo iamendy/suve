@@ -33,7 +33,7 @@ const EnrollBox = () => {
     address: chains.enrollService.address,
     abi: chains.enrollService.abi,
     functionName: "enrollVaccine",
-    args: [name, description, imgLink, expiryDate.getTime()],
+    args: [name, description, imgLink, expiryDate.getTime() / 1000],
     onError(e) {
       console.log(e);
     },

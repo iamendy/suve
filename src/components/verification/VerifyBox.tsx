@@ -34,12 +34,12 @@ const Verify = () => {
 
   //dynamically change parameters when verification network changes
   let contractAddress =
-    chain.id == sourceChainId
+    chain?.id == sourceChainId
       ? chains.enrollService.address
       : chains?.verificationService[chain?.id]?.address;
 
   let abi =
-    chain.id == sourceChainId
+    chain?.id == sourceChainId
       ? chains?.enrollService?.abi
       : chains?.verificationService?.abi;
 
@@ -55,7 +55,7 @@ const Verify = () => {
     enabled: false,
   });
 
-  const { estimate } = useGetGas();
+  const { estimate, isFetching } = useGetGas();
 
   const validateHash = (str: string) => {
     return /^.{0,65}$/.test(str);
@@ -76,7 +76,7 @@ const Verify = () => {
     functionName: "verify",
     args: [debouncedHash],
     overrides: {
-      value: chain.id == sourceChainId ? 0 : estimate,
+      value: chain?.id == sourceChainId ? 0 : estimate,
     },
   });
   const { write: verifyHash, data, isLoading } = useContractWrite(config);
@@ -115,7 +115,9 @@ const Verify = () => {
   return (
     <div className="flex flex-col rounded-sm space-y-5 p-5 bg-gray-800">
       <div className="mb-2">
-        <span className="text-sm lg:text-base text-gray-100">Paste Hash</span>
+        <span className="text-sm lg:text-base text-gray-100">
+          Paste Vaccine ID
+        </span>
         <input
           type="text"
           placeholder="0x.."
@@ -128,10 +130,16 @@ const Verify = () => {
           disabled={isLoading || isTx}
         />
 
-        <span className="text-xs">
-          Gas Estimate:{" "}
-          {parseFloat(ethers.utils.formatEther(estimate || "0")).toFixed(4)}
-        </span>
+        <div>
+          {isFetching ? (
+            <div className="animate-pulse bg-slate-600 h-4 w-16 mt-2 rounded-md"></div>
+          ) : (
+            <span className="text-xs">
+              Gas Estimate:{" "}
+              {parseFloat(ethers.utils.formatEther(estimate || "0")).toFixed(4)}
+            </span>
+          )}
+        </div>
       </div>
 
       <button

@@ -1,7 +1,7 @@
 import { Chains } from "../types";
 
 const chains: Chains = {
-  //Source Contract (Mumbai)
+  //Source Contract (Avalanche)
   enrollService: {
     address: "0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d",
     abi: [
@@ -646,7 +646,7 @@ const chains: Chains = {
     },
     //celo
     44787: {
-      address: "0xCC5FbA12c5e99d810a999ad2fD9Ed8E45a9F01DA",
+      address: "0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d",
     },
     //Mumbai
     80001: {

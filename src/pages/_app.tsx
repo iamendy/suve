@@ -1,5 +1,5 @@
 import "@rainbow-me/rainbowkit/styles.css";
-import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import type { AppProps } from "next/app";
 import NextHead from "next/head";
 import * as React from "react";
@@ -26,7 +26,11 @@ function App({ Component, pageProps }: AppProps) {
   React.useEffect(() => setMounted(true), []);
   return (
     <WagmiConfig client={client}>
-      <RainbowKitProvider chains={chains} modalSize="compact">
+      <RainbowKitProvider
+        chains={chains}
+        theme={darkTheme()}
+        modalSize="compact"
+      >
         <NextHead>
           <title>SUVe | Interchain Vaccine Verification</title>
         </NextHead>

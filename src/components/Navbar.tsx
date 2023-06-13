@@ -1,11 +1,19 @@
-import { useChainModal, useConnectModal } from "@rainbow-me/rainbowkit";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import {
+  useChainModal,
+  useConnectModal,
+  useAccountModal,
+} from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-import { useAccount } from "wagmi";
+import { useAccount, useNetwork } from "wagmi";
+import UserIcon from "./icons/UserIcon";
+import Chevron from "./icons/Chevron";
+
 const Navbar = () => {
   const { openChainModal } = useChainModal();
   const { openConnectModal } = useConnectModal();
+  const { openAccountModal } = useAccountModal();
   const { address, isConnected } = useAccount();
+  const { chain } = useNetwork();
 
   return (
     <div
@@ -41,9 +49,30 @@ const Navbar = () => {
             >
               Verify
             </Link>
+
+            {openChainModal && (
+              <button
+                onClick={openChainModal}
+                type="button"
+                className="flex items-center font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
+              >
+                <>
+                  <b>{chain?.name}</b> <Chevron />
+                </>
+              </button>
+            )}
+
+            {openAccountModal && (
+              <button onClick={openAccountModal} type="button">
+                <UserIcon />
+              </button>
+            )}
           </div>
         ) : (
-          <button onClick={openConnectModal} className="font-bold">
+          <button
+            onClick={openConnectModal}
+            className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
+          >
             Connect
           </button>
         )}

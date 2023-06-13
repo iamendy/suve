@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { useAccount } from "wagmi";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
+
 const Hero = () => {
   const { isConnected } = useAccount();
+  const { openConnectModal } = useConnectModal();
 
   return (
     <section className="px-4 mt-4 lg:px-0 lg:mt-12 lg:flex lg:justify-between items-center lg:max-w-6xl xl:max-w-7xl lg:mx-auto">
@@ -24,7 +27,10 @@ const Hero = () => {
             </Link>
           </div>
         ) : (
-          <button className="launch inline-block text-center p-3 w-[40%] lg:max-w-[200px] lg:p-4 hover:bg-white hover:text-black hover:font-bold border-white border-2 text-sm rounded-sm">
+          <button
+            className="launch inline-block text-center p-3 w-[40%] lg:max-w-[200px] lg:p-4 hover:bg-white hover:text-black hover:font-bold border-white border-2 text-sm rounded-sm"
+            onClick={openConnectModal}
+          >
             Connect Wallet
           </button>
         )}

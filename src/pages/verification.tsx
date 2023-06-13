@@ -2,12 +2,23 @@ import Layout from "../components/Layout";
 import VerifyBox from "../components/verification/VerifyBox";
 import VaccineTxInfo from "../components/verification/VaccineTxInfo";
 import VaccineContext from "../context/VaccineContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import VaccineCard from "../components/VaccineCard";
+import { useRouter } from "next/router";
+import { useAccount } from "wagmi";
 
 const Verification = () => {
   const { isVaccineLoaded, isGmpInProgress, vaccine } =
     useContext(VaccineContext);
+  const router = useRouter();
+  const { isConnected } = useAccount();
+
+  useEffect(() => {
+    if (!isConnected) {
+      router.push("/");
+    }
+  }, [isConnected]);
+
   return (
     <Layout>
       <section className="px-4 min-h-screen backdrop-blur-sm py-8 ">

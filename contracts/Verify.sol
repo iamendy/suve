@@ -9,8 +9,8 @@ import { IERC20 } from "@axelar-network/axelar-gmp-sdk-solidity/contracts/interf
 
 contract Verify is AxelarExecutable {
   IAxelarGasService public immutable gasService;
-  string vaccineEnrollmentService;
-  string VESChain;
+  string public vaccineEnrollmentService;
+  string public VESChain;
 
   struct Vaccine {
     bytes32 hash;
@@ -44,7 +44,7 @@ contract Verify is AxelarExecutable {
     VESChain = _VESChain;
   }
 
-  //a user who has verified before, does not need to re-verify
+  //a user who has verified a hash before, does not need to re-verify
   function getVaccines(
     address checker,
     bytes32 hash
@@ -96,7 +96,16 @@ contract Verify is AxelarExecutable {
 
 //ftm gateway 0x97837985Ec0494E7b9C71f5D3f9250188477ae14
 //ftm gas service 0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6
-//ftm 0x8C704f8e7311Fa56Fb573E39FCb32EcE28ee4FD2
+//ftm verification 0xe5Eee9643fE4d3fD9c5cAC29Ef5f96b8885FE6aB
 
-//hash 0 0x1152bb5962c05d5fd9b73d1f24f8e1af5560fd713473ff016158877254cf326c
-//hash 1 0x046c052e3841c5df03b4a5c1613ce37a213d84c397ae95ad672aaf35c4318310
+//celo gateway 0xe432150cce91c13a887f7D836923d5597adD8E31
+//celo gas service 0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6
+//celo verification 0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d
+
+//Mumbai gateway 0xBF62ef1486468a6bd26Dd669C06db43dEd5B849B
+//Mumbai gas service 0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6
+//Mumbai 0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d
+
+//avalanche gateway 0xC249632c2D40b9001FE907806902f63038B737Ab
+//avalanche gas service 0xbE406F0189A0B4cf3A05C286473D23791Dd44Cc6
+//avalanche 0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d

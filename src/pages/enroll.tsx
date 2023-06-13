@@ -7,11 +7,14 @@ import {
   useContractRead,
   useAccount,
 } from "wagmi";
+import { useRouter } from "next/router";
 import chains from "../chains";
+import { useEffect } from "react";
 const Enroll = () => {
   const { chain } = useNetwork();
   const { isLoading, switchNetwork } = useSwitchNetwork();
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
+  const router = useRouter();
   const sourceChainId = parseInt(process.env.NEXT_PUBLIC_SOURCE_ID);
   const { data: owner } = useContractRead({
     address: chains.enrollService.address,
@@ -19,10 +22,16 @@ const Enroll = () => {
     functionName: "owner",
   });
 
+  useEffect(() => {
+    if (!isConnected) {
+      router.push("/");
+    }
+  }, [isConnected]);
+
   return (
     <Layout>
       <section className="px-4 lg:px-16 min-h-screen backdrop-blur-sm py-8">
-        {chain.id == sourceChainId && address == owner ? (
+        {chain?.id == sourceChainId && address == owner ? (
           <div className="lg:grid lg:grid-cols-12 lg:gap-x-12 space-y-4 lg:space-y-0">
             <EnrollBox />
             <AllVaccines />
@@ -32,7 +41,7 @@ const Enroll = () => {
             <h1 className="font-bold text-red-500">A Tiny ERROR 😉</h1>
             <p> Welcome to the Source Contract. </p>
 
-            {chain.id !== sourceChainId && (
+            {chain?.id !== sourceChainId && (
               <>
                 <h3 className="font-maven text-center">
                   You must be connected to Avalanche Fuji Testnet to access
@@ -61,7 +70,7 @@ const Enroll = () => {
               <br />
               *Funds are already loaded to make testing easy ❤️
             </p>
-            {chain.id !== sourceChainId && (
+            {chain?.id !== sourceChainId && (
               <button
                 className="p-3 rounded-md bg-red-600 hover:bg-green-600"
                 onClick={() => switchNetwork(sourceChainId)}
