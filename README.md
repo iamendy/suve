@@ -6,7 +6,7 @@ With the outbreak of Covid-19, and a rush to find a fast and effective solution,
 
 ### 🍰 What SUVe does
 
-SUVe allows users on different blockchain ecosystems to query from a single source of truth. Suve works by implementing a 2-way General Message Passing to enable communication between Enrollment Service on the source blockchain and Verifification service on other blockchains, to verify the autheticity of vaccines.
+[SUVe](https://suve.vercel.app) allows users on different blockchain ecosystems to query from a single source of truth. Suve works by implementing a 2-way General Message Passing to enable communication between Enrollment Service on the source blockchain and Verifification service on other blockchains, to verify the autheticity of vaccines.
 
 ### 📜 2-way Interchain Transaction for Vaccine verification
 
@@ -47,7 +47,7 @@ I'm happy to have built this app. I was marvelled at the ease of connecting diff
 
 ## 📄 Links
 
-[Dapp](https://to_be_updated)
+[Dapp](https://suve.vercel.app)
 
 Thank you! I hope you enjoyed my interchain-chain verification dApp that saves lives for web3 users, and expands the web3 ecosystem using Axelar.
 
@@ -72,7 +72,7 @@ Thank you! I hope you enjoyed my interchain-chain verification dApp that saves l
 
 3. Update your deployed addresses on the `src/chains/index.ts file.
 
-4. On the dApp, visit the enrollment dashboard to register Vaccnines. This interacts with `EnrollmentService.enroll()`. Private Key instruction is already made.
+4. On the dApp, visit the enrollment dashboard to register Vaccnines. This interacts with `EnrollmentService.enroll()`. Or import Private Key with fund to access enrollment page on dApp: 1818bf734fb041b3a84fd4a7159a58ba105305969d2a6ddb5f46dc5788e39104
 
 5. Run `npm install` to install all dependencies.
 
