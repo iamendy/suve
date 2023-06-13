@@ -1,17 +1,16 @@
 import Link from "../icons/Link";
 
-const ShowTxStatus = ({ txStatus, step, callBackTxStatus, hash }) => {
-  const getStatus = (
-    txStatus: string,
-    callBackTxStatus: string,
-    step: string
-  ): string => {
-    let status = "";
-    return status;
-  };
+type Props = {
+  txStatus: string;
+  step: number;
+  callBackTxStatus: string;
+  hash: string;
+};
+const ShowTxStatus = ({ txStatus, step, callBackTxStatus, hash }: Props) => {
   return (
     <div>
       <div className="flex justify-between items-center">
+        {/* step < 4 is for calling. step > 4 is response  */}
         <span>
           {txStatus == "source_gateway_called" && step < 4
             ? "Pinging Source chain.."
@@ -33,8 +32,15 @@ const ShowTxStatus = ({ txStatus, step, callBackTxStatus, hash }) => {
             ? "Compiling Vaccine.."
             : "Performing Axelar Magic ✨"}
         </span>
-        <a href={`https://testnet.axelarscan.io/gmp/${hash}`} target="_blank">
-          <Link />
+        <a
+          href={`https://testnet.axelarscan.io/gmp/${hash}`}
+          target="_blank"
+          className="hover:underline"
+        >
+          <div className="flex justify-between items-center space-x-1 ">
+            <span className="text-xs">View in Axelar</span>
+            <Link />
+          </div>
         </a>
       </div>
       <div className="flex space-x-2 mt-2">

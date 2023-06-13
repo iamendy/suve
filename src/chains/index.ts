@@ -1,10 +1,98 @@
 import { Chains } from "../types";
 
 const chains: Chains = {
-  //Source Contract
+  //Source Contract (Mumbai)
   enrollService: {
-    address: "0xcadC2E318A281A423343d125880f0E2a42C88fa9",
+    address: "0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d",
     abi: [
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "gateway_",
+            type: "address",
+          },
+          {
+            internalType: "address",
+            name: "gasReceiver_",
+            type: "address",
+          },
+        ],
+        stateMutability: "nonpayable",
+        type: "constructor",
+      },
+      {
+        inputs: [],
+        name: "InvalidAddress",
+        type: "error",
+      },
+      {
+        inputs: [],
+        name: "NotApprovedByGateway",
+        type: "error",
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: true,
+            internalType: "bytes32",
+            name: "hash",
+            type: "bytes32",
+          },
+          {
+            indexed: true,
+            internalType: "string",
+            name: "name",
+            type: "string",
+          },
+          {
+            indexed: false,
+            internalType: "string",
+            name: "description",
+            type: "string",
+          },
+          {
+            indexed: false,
+            internalType: "string",
+            name: "imageLink",
+            type: "string",
+          },
+          {
+            indexed: false,
+            internalType: "uint256",
+            name: "registeredAt",
+            type: "uint256",
+          },
+          {
+            indexed: false,
+            internalType: "uint256",
+            name: "expiresAt",
+            type: "uint256",
+          },
+        ],
+        name: "NewVaccineEnrolled",
+        type: "event",
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: true,
+            internalType: "address",
+            name: "previousOwner",
+            type: "address",
+          },
+          {
+            indexed: true,
+            internalType: "address",
+            name: "newOwner",
+            type: "address",
+          },
+        ],
+        name: "OwnershipTransferred",
+        type: "event",
+      },
       {
         inputs: [
           {
@@ -95,114 +183,6 @@ const chains: Chains = {
           },
         ],
         name: "executeWithToken",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-      },
-      {
-        inputs: [
-          {
-            internalType: "address",
-            name: "gateway_",
-            type: "address",
-          },
-          {
-            internalType: "address",
-            name: "gasReceiver_",
-            type: "address",
-          },
-        ],
-        stateMutability: "nonpayable",
-        type: "constructor",
-      },
-      {
-        inputs: [],
-        name: "InvalidAddress",
-        type: "error",
-      },
-      {
-        inputs: [],
-        name: "NotApprovedByGateway",
-        type: "error",
-      },
-      {
-        anonymous: false,
-        inputs: [
-          {
-            indexed: true,
-            internalType: "bytes32",
-            name: "hash",
-            type: "bytes32",
-          },
-          {
-            indexed: true,
-            internalType: "string",
-            name: "name",
-            type: "string",
-          },
-          {
-            indexed: false,
-            internalType: "string",
-            name: "description",
-            type: "string",
-          },
-          {
-            indexed: false,
-            internalType: "string",
-            name: "imageLink",
-            type: "string",
-          },
-          {
-            indexed: false,
-            internalType: "uint256",
-            name: "registeredAt",
-            type: "uint256",
-          },
-          {
-            indexed: false,
-            internalType: "uint256",
-            name: "expiresAt",
-            type: "uint256",
-          },
-        ],
-        name: "NewVaccineEnrolled",
-        type: "event",
-      },
-      {
-        anonymous: false,
-        inputs: [
-          {
-            indexed: true,
-            internalType: "address",
-            name: "previousOwner",
-            type: "address",
-          },
-          {
-            indexed: true,
-            internalType: "address",
-            name: "newOwner",
-            type: "address",
-          },
-        ],
-        name: "OwnershipTransferred",
-        type: "event",
-      },
-      {
-        inputs: [],
-        name: "renounceOwnership",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-      },
-      {
-        inputs: [
-          {
-            internalType: "address",
-            name: "newOwner",
-            type: "address",
-          },
-        ],
-        name: "transferOwnership",
         outputs: [],
         stateMutability: "nonpayable",
         type: "function",
@@ -311,6 +291,26 @@ const chains: Chains = {
         type: "function",
       },
       {
+        inputs: [],
+        name: "renounceOwnership",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "newOwner",
+            type: "address",
+          },
+        ],
+        name: "transferOwnership",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+      {
         inputs: [
           {
             internalType: "bytes32",
@@ -363,6 +363,7 @@ const chains: Chains = {
       },
     ],
   },
+
   //Interchain Verification Contracts
   verificationService: {
     abi: [
@@ -612,10 +613,36 @@ const chains: Chains = {
         stateMutability: "view",
         type: "function",
       },
+      {
+        inputs: [],
+        name: "vaccineEnrollmentService",
+        outputs: [
+          {
+            internalType: "string",
+            name: "",
+            type: "string",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+      {
+        inputs: [],
+        name: "VESChain",
+        outputs: [
+          {
+            internalType: "string",
+            name: "",
+            type: "string",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
     ],
     //fantom
     4002: {
-      address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
+      address: "0xe5Eee9643fE4d3fD9c5cAC29Ef5f96b8885FE6aB",
     },
     //celo
     44787: {
@@ -627,10 +654,6 @@ const chains: Chains = {
     },
     //Avalanche
     43113: {
-      address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
-    },
-    //sepolia
-    11155111: {
       address: "0x204a77C0d772BCb10057759E2D4e10B7f9585d62",
     },
   },

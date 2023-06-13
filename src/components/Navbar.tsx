@@ -19,14 +19,29 @@ const Navbar = () => {
         SUVe
       </Link>
 
-      <div className="space-x-5">
-        <a href="#" className="font-bold">
+      <div className="flex items-center space-x-5">
+        <a
+          href="#"
+          className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
+          target="_blank"
+        >
           Blog
         </a>
         {isConnected ? (
-          <Link href="/verification" className="font-bold">
-            Verify
-          </Link>
+          <div className=" flex space-x-4">
+            <Link
+              href="/enroll"
+              className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
+            >
+              Enroll
+            </Link>
+            <Link
+              href="/verification"
+              className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
+            >
+              Verify
+            </Link>
+          </div>
         ) : (
           <button onClick={openConnectModal} className="font-bold">
             Connect

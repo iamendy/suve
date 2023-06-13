@@ -26,8 +26,5 @@ export interface Chains {
     43113: {
       address: string;
     };
-    11155111: {
-      address: string;
-    };
   };
 }

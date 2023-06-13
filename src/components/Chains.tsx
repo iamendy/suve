@@ -5,8 +5,8 @@ const Chains = () => {
         One source, interchain validators
       </h1>
       <p className="mb-4 lg:w-[50%] lg:mx-auto lg:text-xl">
-        10,000 people die daily from complications due to counterfeit vaccines.
-        SUVe helps you verify vaccines, across any blockchain.
+        Over 10,000 people die daily from complications due to counterfeit
+        vaccines. SUVe helps verify vaccines, across any blockchain.
       </p>
 
       <p className="font-bold text-xl">Supported Chains </p>

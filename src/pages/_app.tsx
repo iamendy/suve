@@ -17,7 +17,7 @@ const paytoneOne = Paytone_One({
 
 const mavenPro = Maven_Pro({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600"],
   variable: "--maven",
 });
 

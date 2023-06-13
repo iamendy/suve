@@ -12,16 +12,12 @@ import Loader from "../icons/Loader";
 import useGetGas from "../../hooks/useGetGas";
 import { ethers } from "ethers";
 import VaccineContext from "../../context/VaccineContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const Verify = () => {
   const { address } = useAccount();
   const { chain } = useNetwork();
-
-  const baseConfig = {
-    address: chains?.verificationService[chain?.id]?.address,
-    abi: chains?.verificationService?.abi,
-  };
+  const [isValidEntry, setIsValidEntry] = useState<boolean>(false);
 
   const {
     setVaccine,
@@ -34,26 +30,53 @@ const Verify = () => {
 
   const debouncedHash = useDebounce<string>(hash, 500);
 
+  const sourceChainId: number = parseInt(process.env.NEXT_PUBLIC_SOURCE_ID);
+
+  //dynamically change parameters when verification network changes
+  let contractAddress =
+    chain.id == sourceChainId
+      ? chains.enrollService.address
+      : chains?.verificationService[chain?.id]?.address;
+
+  let abi =
+    chain.id == sourceChainId
+      ? chains?.enrollService?.abi
+      : chains?.verificationService?.abi;
+
   const {
     data: vaccine,
     isLoading: isLoadingVaccine,
     refetch: retrieve,
   } = useContractRead({
-    ...baseConfig,
-    functionName: "getVaccines",
-    args: [address, hash],
+    address: contractAddress,
+    abi,
+    functionName: chain?.id == sourceChainId ? "verify" : "getVaccines",
+    args: chain?.id == sourceChainId ? [hash] : [address, hash],
     enabled: false,
   });
 
   const { estimate } = useGetGas();
 
+  const validateHash = (str: string) => {
+    return /^.{0,65}$/.test(str);
+  };
+
+  useEffect(() => {
+    if (validateHash(hash)) {
+      setIsValidEntry(true);
+    } else {
+      setIsValidEntry(false);
+    }
+  }, [hash]);
+
+  //dynamically call verify function on source or validators
   const { config } = usePrepareContractWrite({
-    address: chains?.verificationService[chain?.id]?.address,
-    abi: chains?.verificationService?.abi,
+    address: contractAddress,
+    abi,
     functionName: "verify",
     args: [debouncedHash],
     overrides: {
-      value: estimate,
+      value: chain.id == sourceChainId ? 0 : estimate,
     },
   });
   const { write: verifyHash, data, isLoading } = useContractWrite(config);
@@ -69,16 +92,23 @@ const Verify = () => {
   });
 
   const handleVerify = () => {
-    //checks if caller has requested before
-    if (vaccine?.name) {
-      //set global state and check
+    //on source chain, no GMP
+    if (chain?.id == sourceChainId) {
       setIsVaccineLoaded(true);
       setVaccine(vaccine);
+
+      //other chains
     } else {
-      //reset any initial cache
-      setIsVaccineLoaded(false);
-      //verify status with GMP
-      verifyHash?.();
+      //checks if caller has requested before
+      if (vaccine?.name) {
+        setIsVaccineLoaded(true);
+        setVaccine(vaccine);
+
+        //verify hash with GMP
+      } else {
+        setIsVaccineLoaded(false);
+        verifyHash?.();
+      }
     }
   };
 
@@ -97,16 +127,17 @@ const Verify = () => {
           }}
           disabled={isLoading || isTx}
         />
-        <p>{chain.id}</p>
+
         <span className="text-xs">
-          Gas Estimate: {ethers.utils.formatEther(estimate || "0")}
+          Gas Estimate:{" "}
+          {parseFloat(ethers.utils.formatEther(estimate || "0")).toFixed(4)}
         </span>
       </div>
 
       <button
         className="bg-black hover:bg-black/50 active:bg-black p-3 flex justify-center items-center rounded-sm disabled:bg-gray-400"
         onClick={() => handleVerify()}
-        disabled={isLoading || isTx || isLoadingVaccine}
+        disabled={isLoading || isTx || isLoadingVaccine || isValidEntry}
       >
         {isLoading || isTx || isLoadingVaccine ? (
           <>

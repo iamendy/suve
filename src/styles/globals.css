@@ -33,31 +33,6 @@
   @apply hidden lg:block lg:left-[-100px] lg:bottom-0;
 }
 
-.launch {
-  color: white;
-  background-color: black;
-}
-
-.launch:hover {
-  color: black;
-}
-
-.launch:before {
-  content: "";
-  position: absolute;
-  background: white;
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transition: width 0.1s ease-out;
-}
-
-.launch:hover::before {
-  width: 100%;
-  transition: width 0.1s ease-in;
-}
-
 .verified::before {
   content: "";
   position: absolute;
