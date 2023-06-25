@@ -2,11 +2,15 @@
 
 ![](https://github.com/iamendy/suve/blob/master/public/img/preview.gif)
 
+Live Demo - [YouTube](https://youtu.be/VtPkBPngoBo)
+
 ## ✨ Inspiration
 
-With the outbreak of Covid-19, and a rush to find a fast and effective solution, we have witnessed a rise in counterfeit vaccines. This has cost thousands of human lives, especially in emerging countries. Suve is a dApp that takles vaccine counterfeit problem.
+With the outbreak of Covid-19, and a rush to find a fast and effective solution, we have witnessed a rise in counterfeit vaccines generally. This has cost thousands of human lives, especially in emerging countries.
 
-SUVe is a proof on how multi-chain verification systems is made possible through Axelar protocol.
+[SUVe](https://suve.vercel.app) is a dApp that takles vaccine counterfeit problem.
+
+[SUVe](https://suve.vercel.app) is a proof on how multi-chain verification systems is made possible through Axelar protocol.
 
 ## 🍰 What SUVe does
 
@@ -35,8 +39,9 @@ For the front end, I used **`NextJs/Typescript`** with **`Wagmi`**. The dApp use
 
 ## 📄 Links
 
-[Dapp](https://suve.vercel.app)
-[LIVE Demo](https://www.youtube.com/watch?v=VtPkBPngoBo)
+[Dapp](https://suve.vercel.app) 🌍
+
+[LIVE Demo](https://www.youtube.com/watch?v=VtPkBPngoBo) 📹
 
 You can verify using any of these Vaccine Ids on supported blokchains:
 

@@ -63,7 +63,7 @@ const Verify = () => {
     abi,
     functionName: chain?.id == sourceChainId ? "verify" : "getVaccines",
     args: chain?.id == sourceChainId ? [hash] : [address, hash],
-    enabled: false,
+    enabled: true,
   });
 
   const { estimate, isFetching } = useGetGas();
