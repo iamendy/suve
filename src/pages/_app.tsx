@@ -37,7 +37,7 @@ function App({ Component, pageProps }: AppProps) {
 
         {mounted && (
           <main
-            className={`${paytoneOne.variable} ${mavenPro.variable} bg-black/[92%] text-white min-h-screen main overflow-hidden`}
+            className={`${paytoneOne.variable} ${mavenPro.variable} bg-black/[92%] text-white main overflow-hidden`}
           >
             <VaccineProvider>
               <Component {...pageProps} />

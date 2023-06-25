@@ -27,7 +27,7 @@ I created 2 EVM smart contracts in Solidity, [**VaccineEnrollmentService.sol**](
 
 - The VerificationService is used for verification. The VerificationService is deployed to multiple EVM compatible chains (Celo, Fantom, and Polygon).
 
-When a user requests for verification on the supported chains, these smart contracts uses Axelar 2-way General Message Passing to make cross-chain call and response, in order verify the authenticity of requested vaccine.
+When a user requests for verification on any of the supported chains, these smart contracts uses Axelar 2-way General Message Passing to make cross-chain call and response, in order verify the authenticity of requested vaccine.
 
 For the front end, I used **`NextJs/Typescript`** with **`Wagmi`**. The dApp uses **`AxelarJs SDK`** on custom API endpoints which implements `AxelarQueryAPI` to get interchain estimated gas, and `AxelarGMPRecoveryAPI` to track the entire 2-way GMP process on the frontend.
 
@@ -54,6 +54,7 @@ You can verify using any of these Vaccine Ids on supported blokchains:
 ✅ The ease of interchain capability using Axelar is amazing. <br/>
 ✅ I'm more of a visual learner, so the video resources on Youtube really helped bring me up to speed, then the docs became super easy to understand <br />
 ✅ I love how the docs is well structured. It is easy to navigate and find what you're looking for.
+
 ✅ Axelar SDK works seamlessless, especially for getting GMP status.
 
 ➖ I noticed GMP transactions shows "Data Not Found" on Axelar scan during peak times. <br />

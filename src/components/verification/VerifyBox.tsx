@@ -159,7 +159,13 @@ const Verify = () => {
       <button
         className="bg-black hover:bg-black/50 active:bg-black p-3 flex justify-center items-center rounded-sm disabled:bg-gray-400"
         onClick={() => handleVerify()}
-        disabled={isLoading || isTx || isLoadingVaccine || isValidEntry}
+        disabled={
+          isLoading ||
+          isTx ||
+          isLoadingVaccine ||
+          isValidEntry ||
+          chain?.unsupported
+        }
       >
         {isLoading || isTx || isLoadingVaccine ? (
           <>

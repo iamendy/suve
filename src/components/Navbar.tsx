@@ -8,6 +8,7 @@ import { useAccount, useNetwork } from "wagmi";
 import UserIcon from "./icons/UserIcon";
 import Chevron from "./icons/Chevron";
 import Menu from "./icons/Menu";
+import Icon from "./icons/Icon";
 
 type Props = {
   toggle: boolean;
@@ -22,14 +23,15 @@ const Navbar = ({ toggle, setToggle }: Props) => {
   const { chain } = useNetwork();
 
   return (
-    <div
-      className="relative bg-black px-3 py-5 flex justify-between items-center border-white border-t border-b
+    <nav
+      className=" bg-black px-3 py-5 flex justify-between items-center 
     lg:py-5 lg:px-16"
     >
       <Link
         href="/"
-        className="text-white text-xl lg:text-2xl xl:text-3xl font-extrabold"
+        className="text-white text-xl lg:text-2xl xl:text-3xl font-extrabold flex items-center"
       >
+        <Icon />
         SUVe
       </Link>
 
@@ -88,7 +90,7 @@ const Navbar = ({ toggle, setToggle }: Props) => {
           </button>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 export default Navbar;
