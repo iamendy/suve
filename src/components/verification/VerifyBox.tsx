@@ -68,6 +68,7 @@ const Verify = () => {
 
   const { estimate, isFetching } = useGetGas();
 
+  //validates hash length
   const validateHash = (str: string) => {
     return /^.{0,65}$/.test(str);
   };
@@ -129,7 +130,7 @@ const Verify = () => {
     <div className="flex flex-col rounded-sm space-y-5 p-5 bg-gray-800">
       <div className="mb-2">
         <span className="text-sm lg:text-base text-gray-100">
-          Paste Vaccine ID {chain?.id === sourceChainId ? "yes" : "no"}
+          Paste Vaccine ID
         </span>
         <input
           type="text"

@@ -7,7 +7,7 @@ import { IAxelarGateway } from "@axelar-network/axelar-gmp-sdk-solidity/contract
 import { IAxelarGasService } from "@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IAxelarGasService.sol";
 import { IERC20 } from "@axelar-network/axelar-gmp-sdk-solidity/contracts/interfaces/IERC20.sol";
 
-contract Verify is AxelarExecutable {
+contract VaccineVerificationService is AxelarExecutable {
   IAxelarGasService public immutable gasService;
   string public vaccineEnrollmentService;
   string public VESChain;

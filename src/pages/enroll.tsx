@@ -46,12 +46,14 @@ const Enroll = () => {
             {chain?.id !== sourceChainId && (
               <>
                 <h3 className="font-maven text-center">
-                  You must be connected to Avalanche Fuji Testnet to access
-                  Enrollment service.
+                  You must be connected to{" "}
+                  <b className="text-green-500">Avalanche Fuji Testnet</b> to
+                  access Enrollment service.
                 </h3>
 
                 <p>
-                  *️⃣ Please add Avalanche Fuji Testnet to your Metamask in{" "}
+                  *️⃣ Please add <b>Avalanche Fuji Testnet</b> to your Metamask
+                  in{" "}
                   <a
                     href="https://chainid.network"
                     target="_blank"
@@ -66,8 +68,8 @@ const Enroll = () => {
             )}
 
             <p>
-              *️⃣ Please import test wallet PK to your MetaMask. Only Deployer
-              can enroll 🙌
+              *️⃣ Please <b>import test wallet</b> PK to your MetaMask. Only
+              Deployer can enroll 🙌
               <br />
               1818bf734fb041b3a84fd4a7159a58ba105305969d2a6ddb5f46dc5788e39104
               <br />
