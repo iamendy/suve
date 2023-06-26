@@ -20,7 +20,7 @@ With the outbreak of Covid-19, and a rush to find a fast and effective solution,
 
 ## 📜 2-way GMP Transaction for Vaccine verification
 
-Request: [This is a transaction made to VerificationService on FANTOM](https://testnet.axelarscan.io/gmp/0x40002bac8b06c22036c201dee87067b57fc3a18434eebca2477cdaa741857708)
+Request: [This is a transaction made from VerificationService on FANTOM](https://testnet.axelarscan.io/gmp/0x40002bac8b06c22036c201dee87067b57fc3a18434eebca2477cdaa741857708)
 
 Response:
 [This is the response from EnrollmentService on the source chain AVALANCHE](https://testnet.axelarscan.io/gmp/0x0d43bbeb449f4a7ec0bc06b36ba01857f2cedcb21f349d8f0e90e47bbbbf5f4a)
