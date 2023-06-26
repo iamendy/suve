@@ -65,7 +65,7 @@ const MobileNav = ({ toggle, setToggle }: Props) => {
             )}
 
             <a
-              href="https://hashnode.com/preview/6488c510125ddf000f04aa8c"
+              href="https://blog.nnamdiumeh.dev/beyond-blockchain-bridges-an-introduction-to-axelar-protocol"
               className="font-bold rounded-sm text-2xl hover:bg-white hover:text-black px-5 py-2"
               target="_blank"
               rel="noreferrer"

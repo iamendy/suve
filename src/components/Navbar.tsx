@@ -43,7 +43,7 @@ const Navbar = ({ toggle, setToggle }: Props) => {
 
       <div className="hidden lg:flex items-center space-x-5">
         <a
-          href="https://hashnode.com/preview/6488c510125ddf000f04aa8c"
+          href="https://blog.nnamdiumeh.dev/beyond-blockchain-bridges-an-introduction-to-axelar-protocol"
           className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
           target="_blank"
           rel="noreferrer"

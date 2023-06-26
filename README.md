@@ -4,6 +4,8 @@
 
 Live Demo - [YouTube](https://youtu.be/VtPkBPngoBo)
 
+Blog - [Beyond BlockChain Bridges: An introduction to Axelar Protocol ](https://blog.nnamdiumeh.dev/beyond-blockchain-bridges-an-introduction-to-axelar-protocol)
+
 ## ✨ Inspiration
 
 With the outbreak of Covid-19, and a rush to find a fast and effective solution, we have witnessed a rise in counterfeit vaccines generally. This has cost thousands of human lives, especially in emerging countries.
