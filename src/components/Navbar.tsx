@@ -9,6 +9,7 @@ import UserIcon from "./icons/UserIcon";
 import Chevron from "./icons/Chevron";
 import Menu from "./icons/Menu";
 import Icon from "./icons/Icon";
+import { useRouter } from "next/router";
 
 type Props = {
   toggle: boolean;
@@ -21,6 +22,7 @@ const Navbar = ({ toggle, setToggle }: Props) => {
   const { openAccountModal } = useAccountModal();
   const { isConnected } = useAccount();
   const { chain } = useNetwork();
+  const router = useRouter();
 
   return (
     <nav
@@ -52,13 +54,17 @@ const Navbar = ({ toggle, setToggle }: Props) => {
           <div className=" flex space-x-4">
             <Link
               href="/enroll"
-              className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
+              className={` ${
+                router.pathname === "/enroll" && "bg-white text-black"
+              }  font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2`}
             >
               Enroll
             </Link>
             <Link
               href="/verification"
-              className="font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2"
+              className={` ${
+                router.pathname === "/verification" && "bg-white text-black"
+              }  font-bold rounded-sm hover:bg-white hover:text-black px-5 py-2`}
             >
               Verify
             </Link>

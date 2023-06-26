@@ -1,6 +1,6 @@
 const WhatIsSuve = () => {
   return (
-    <section className="px-4 lg:max-w-6xl lg:mx-auto space-y-4">
+    <section className="px-4 py-24 lg:max-w-6xl lg:mx-auto space-y-4">
       <h3 className="font-bold text-xl font-paytone mb-3 lg:text-6xl lg:w-[70%] lg:mx-auto lg:text-center">
         What is SUVe?
       </h3>

@@ -14,6 +14,7 @@ import { ethers } from "ethers";
 import VaccineContext from "../../context/VaccineContext";
 import { useContext, useEffect, useState } from "react";
 import { Vaccine } from "../../types";
+import { motion } from "framer-motion";
 
 type Options = {
   setVaccine: (x: Vaccine) => void;
@@ -127,7 +128,11 @@ const Verify = () => {
   };
 
   return (
-    <div className="flex flex-col rounded-sm space-y-5 p-5 bg-gray-800">
+    <motion.div
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1, transition: { delay: 0.6 } }}
+      className="flex flex-col rounded-sm space-y-5 p-5 bg-gray-800"
+    >
       <div className="mb-2">
         <span className="text-sm lg:text-base text-gray-100">
           Paste Vaccine ID
@@ -176,7 +181,7 @@ const Verify = () => {
           "Verify"
         )}
       </button>
-    </div>
+    </motion.div>
   );
 };
 export default Verify;

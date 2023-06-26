@@ -1,6 +1,6 @@
 const Chains = () => {
   return (
-    <section className="px-4 text-center lg:mt-12 lg:max-w-6xl lg:mx-auto">
+    <section className="px-4 py-24 text-center lg:mt-12 lg:max-w-6xl lg:mx-auto">
       <h1 className="text-3xl lg:text-6xl lg:w-[70%]  lg:mx-auto mb-4 font-bold  font-paytone">
         One source, interchain validators
       </h1>
