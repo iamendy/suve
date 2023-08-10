@@ -46,7 +46,7 @@ const VaccineTxInfo = () => {
           txStatus={txStatus}
           step={step}
           callBackTxStatus={callBackTxStatus}
-          hash={hash}
+          hash={txHash}
         />
 
         <div className="shadow rounded-sm w-full">
